@@ -30,15 +30,24 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 
 - 在新建的项目中，找到res文件夹，选中点击右键，选择New-> Android Resource File，如下图：
 
-<div  align = "left"
-     <img src= "" width="30%"/>
-     />
-
+<div  align = "left">
+    <img src= "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/create.png?raw=true"/>
+</div>
 
 - 在弹出的对话框中，File name一栏中，填写文件名，例如"navigation_main"，Resource type一栏选择 Navigation，然后点击OK，如下图：
 
+<div align = "left">
+    <img src = "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/navigation_main.png?raw=true"/>
+</div>
+
 
 - 创建完成后，会发现在res文件夹目录下，出现了一个新的文件夹“navigation”，然后我们刚才创建的"navigation_main.xml"也放在里面，如下图：
+
+<div align = "left">
+    <img src = "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/new_navigation.png?raw=true"/>
+</div>
+
+
 - 打开activity_main.xml文件，添加fragment控件。
 
 ```xml
@@ -53,9 +62,15 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 
 - 打开“navigation_main.xml”文件，选择“design”模式，点击左上角加号按钮，如下图：
 
-
+<div align = "left">
+    <img src="https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/new_fragment.jpg?raw=true"/>
+</div>
 
 - 创建MainFragment文件，如下图：
+
+<div align = "left">
+    <img src= "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/main_fragment.png?raw=true"/>
+</div>
 
 - 在fragment_main.xml文件中添加两个按钮（goToAccount、goToSettings）：
 
@@ -94,7 +109,10 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 
 - 分别创建AccountFragment和SettingsFragment文件
 
-
+<div align= "left">
+    <img src="https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/account_fragment.png?raw=true"/>
+     <img src="https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/settings_fragment.png?raw=true"/>
+</div>
 
 - 在“navigation_main.xml”文件中创建它与另外两个Fragment界面联系，打开navigation_main.xml文件，如下，将action中id分别修改为‘toAccount’、‘toSettings’。
 
@@ -136,8 +154,8 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 ```kotlin
 goToAccount.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.toAccount))
 goToSettings.setOnClickListener {
-            it.findNavController().navigate(R.id.toSettings)
-        }
+     it.findNavController().navigate(R.id.toSettings)
+}
 ```
 
 - 带参传递
