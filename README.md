@@ -30,6 +30,10 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 
 - 在新建的项目中，找到res文件夹，选中点击右键，选择New-> Android Resource File，如下图：
 
+<div  align = "left"
+     <img src= "" width="30%"/>
+     />
+
 
 - 在弹出的对话框中，File name一栏中，填写文件名，例如"navigation_main"，Resource type一栏选择 Navigation，然后点击OK，如下图：
 
@@ -52,8 +56,46 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 
 
 - 创建MainFragment文件，如下图：
+
 - 在fragment_main.xml文件中添加两个按钮（goToAccount、goToSettings）：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+    <Button
+        android:id="@+id/goToAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GO TO ACCOUNT"
+        app:layout_constraintBottom_toTopOf="@+id/goToSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+    <Button
+        android:id="@+id/goToSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GO TO SETTINGS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToAccount" />
+</android.support.constraint.ConstraintLayout>
+```
+
 - 分别创建AccountFragment和SettingsFragment文件
+
+
+
 - 在“navigation_main.xml”文件中创建它与另外两个Fragment界面联系，打开navigation_main.xml文件，如下，将action中id分别修改为‘toAccount’、‘toSettings’。
 
 ```xml
