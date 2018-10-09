@@ -253,6 +253,6 @@ apply plugin: 'androidx.navigation.safeargs'
             app:argType="string" />
 ```
 
-
+详细使用文档请参见官网介绍[https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing](https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing)
 
 
