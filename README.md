@@ -39,7 +39,11 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 <div align = "left">
     <img src = "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/navigation_main.png?raw=true"/>
 </div>
+- 如果Resource type中没有navigation，则需要在File->Settings，左侧菜单中选择Experimental，然后在右侧Editor中选择Enable Navigation Editor，然后重启AndroidStudio，如下图：
 
+<div align = "left">
+    <img src = "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/setup_navigation.png?raw=true"/>
+</div>
 
 - 创建完成后，会发现在res文件夹目录下，出现了一个新的文件夹“navigation”，然后我们刚才创建的"navigation_main.xml"也放在里面，如下图：
 
@@ -160,7 +164,94 @@ goToSettings.setOnClickListener {
 
 - 带参传递
 
+1. 修改fragment_account.xml文件
 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountFragment">
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="NEXT" />
+</FrameLayout>
+```
+
+2. 添加NameFragment文件
+
+<div align= "left">
+    <img src="https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/name_fragment.png?raw=true"/>
+</div>
+
+3. 修改AccountFragment文件
+
+```kotlin
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        nextBtn.setOnClickListener {
+            val name = editName.text.toString()
+            val bundle = Bundle()
+            bundle.putString("nameArg", name)
+            it.findNavController().navigate(R.id.toName, bundle)
+        }
+    }
+```
+
+4. 修改NameFragment文件
+
+```kotlin
+ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        nameText.text = arguments?.getString("nameArg")
+    }
+```
+
+### 类型安全的方式传递参数
+
+在项目build.gradle文件中添加如下代码：
+
+```groovy
+dependencies{
+    classpath 'android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha06'
+}
+```
+
+在app的build.gradle文件中添加如下代码
+
+```groovy
+apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
+```
+
+在navigation_main.xml文件中，选中nameFragment，右侧菜单中双击Argument项，添加name、type、default value，如下图：
+
+<div align= "left">
+    <img src="https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/add_argument.png?raw=true"/>
+</div>
+
+在navigation_main.xml文件中查看相应argument。
+
+```xml
+        <argument
+            android:name="nameArg"
+            android:defaultValue=" "
+            app:argType="string" />
+```
 
 
 
