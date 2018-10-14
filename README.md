@@ -1,7 +1,15 @@
-# Android JetPack组件之Navigation学习
+# Android JetPack组件之Navigation
 ## 什么是Navigation
 
-要了解navigation需要先了解Android Jetpack，Android Developers中对[Android Jetpack](https://developer.android.google.cn/jetpack/) 有详细的介绍，不了解的可以去官网查看。
+要了解navigation需要先了解Android Jetpack，Android Developers中对[Android Jetpack](https://developer.android.google.cn/jetpack/) 做了详细的介绍，下面是摘自官网的部分介绍：
+
+>Jetpack is a collection of Android software components to make it easier for you to develop great Android apps. These components help you follow best practices, free you from writing boilerplate code, and simplify complex tasks, so you can focus on the code you care about.
+>
+>Jetpack comprises the [androidx.*](https://developer.android.google.cn/jetpack/androidx) package libraries, unbundled from the platform APIs. This means that it offers backward compatibility and is updated more frequently than the Android platform, making sure you always have access to the latest and greatest versions of the Jetpack components.
+>
+>Jetpack是Android软件组件的集合，使您可以更轻松地开发出色的Android应用程序。这些组件可帮助您遵循最佳实践，免除编写样板代码并简化复杂任务，因此您可以专注于您关心的代码。
+>
+>Jetpack包含 [androidx。*](https://developer.android.google.cn/jetpack/androidx) 包库，与平台API [分开](https://developer.android.google.cn/jetpack/androidx)。这意味着它提供向后兼容性并且比Android平台更频繁地更新，确保您始终可以访问最新和最好的Jetpack组件版本。
 
 - Android Jetpack 架构组件Architecture之一
 - 简化了Android应用程序中导航的实现
@@ -9,7 +17,7 @@
 
 ## Navigation能做什么
 
-利用Navigation组件对 Fragment 的原生支持，您可以获得架构组件的所有好处（例如生命周期和 ViewModel），同时让此组件为您处理 FragmentTransaction 的复杂性。此外，Navigation组件还可以让您声明我们为您处理的转场。它可以自动构建正确的“向上”和“返回”行为，包含对深层链接的完整支持，并提供了帮助程序，用于将导航关联到合适的 UI 小部件，例如抽屉式导航栏和底部导航。
+> 利用Navigation组件对 Fragment 的原生支持，您可以获得架构组件的所有好处（例如生命周期和 ViewModel），同时让此组件为您处理 FragmentTransaction 的复杂性。此外，Navigation组件还可以让您声明我们为您处理的转场。它可以自动构建正确的“向上”和“返回”行为，包含对深层链接的完整支持，并提供了帮助程序，用于将导航关联到合适的 UI 小部件，例如抽屉式导航栏和底部导航。
 
 ##如何使用Navigation
 
@@ -50,8 +58,6 @@ implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha06'
 <div align = "left">
     <img src = "https://github.com/GuangJieWang/NavigationDemo/blob/master/screenShot/new_navigation.png?raw=true"/>
 </div>
-
-
 - 打开activity_main.xml文件，添加fragment控件。
 
 ```xml
@@ -253,6 +259,7 @@ apply plugin: 'androidx.navigation.safeargs'
             app:argType="string" />
 ```
 
-详细使用文档请参见官网介绍[https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing](https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing)
+navigation详细使用文档请参见官网介绍[https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing](https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing)
+
 
 

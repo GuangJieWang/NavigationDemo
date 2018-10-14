@@ -19,7 +19,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_accountFragment_to_nameFragment">
+                            <entry key="toName">
                               <value>
                                 <LayoutPositions />
                               </value>
